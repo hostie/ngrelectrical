@@ -1,0 +1,40 @@
+/*-----------------------------------*\
+    LIST-UI
+\*-----------------------------------*/
+
+/**
+ * The UI list object creates blocky list items with a keyline separator out of
+ * a `ul` or `ol`.
+ *
+  <ul class="list-ui">
+    <li class="list-ui__item">Cras justo odio</li>
+    <li class="list-ui__item">Dapibus ac facilisis in</li>
+    <li class="list-ui__item">Morbi leo risus</li>
+    <li class="list-ui__item">Porta ac consectetur ac</li>
+  </ul>
+ *
+ */
+
+.list-ui,
+%list-ui,
+.list-ui__item,
+%list-ui__item {
+    border: 0 solid $color-border;
+}
+
+.list-ui,
+%list-ui {
+    @extend %reset-list;
+    border-top-width: 1px;
+
+    > li {
+        @extend %list-ui__item;
+    }
+
+}
+
+.list-ui__item,
+%list-ui__item {
+    padding: $spacing-unit;
+    border-bottom-width: 1px;
+}

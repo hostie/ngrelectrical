@@ -1,0 +1,33 @@
+/*-----------------------------------*\
+    SHARED
+\*-----------------------------------*/
+
+/**
+ * Where `margin-bottom` is concerned,this value will be the same as the
+ * base line-height. This allows us to keep a consistent vertical rhythm.
+ */
+h1, h2, h3, h4, h5, h6,
+ul, ol, dl,
+blockquote, p, address,
+table,
+fieldset, figure,
+pre, 
+%margin-bottom {
+    margin-bottom: $spacing-unit;
+    margin-bottom: ($spacing-unit / $base-font-size) * 1rem;
+}
+
+/* Extend Placeholders */
+%reset-margin  {
+    margin: 0;
+}
+
+%reset-padding {
+    padding: 0;
+}
+
+%reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}

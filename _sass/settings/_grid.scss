@@ -1,0 +1,20 @@
+//-------------------------------------
+//  GRID
+//-------------------------------------
+
+$susy: (
+    container: 90%,
+    columns: 12,
+    gutters: .25,
+    column-width: 72px,
+    gutter-position: inside-static,
+    global-box-sizing: border-box,
+
+    debug: (
+        image: show,
+        color: lighten($color-accent, .125),
+        output: background,
+        toggle: top right,
+    ),
+
+);

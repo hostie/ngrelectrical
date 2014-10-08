@@ -1,0 +1,36 @@
+/*-----------------------------------*\
+    PAGE
+\*-----------------------------------*/
+
+/**
+ * High-, page-level styling.
+ *
+ * 1. Set the default 'font-family' for the entire project.
+ * 2. Set the default `font-size` and `line-height` for the entire project,
+ *    sourced from our default variables. The `font-size` is calculated to exist
+ *    in ems, the `line-height` is calculated to exist unitlessly.
+ * 3. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+ *    navigating between pages that do/do not have enough content to produce
+ *    scrollbars naturally.
+ * 4. Ensure the page always fills at least the entire height of the viewport.
+ * 5. Prevent certain mobile browsers from automatically zooming fonts.
+ * 6. Fonts on OSX will look more consistent with other systems that do not
+ *    render text using sub-pixel anti-aliasing.
+ * 7. Remove gray highlight when tapping Links in Mobile Safari.
+ */
+html {
+    font-family: $font-family-text; /* [1] */
+    font-size: ($base-font-size / 16px) * 1em; /* [2] */
+    line-height: $base-line-height / $base-font-size; /* [2] */
+    font-weight: $font-weight-light;
+    background-color: $color-background;
+    color: $color-text;
+    overflow-y: scroll; /* [3] */
+    min-height: 100%; /* [4] */
+    -webkit-text-size-adjust: 100%; /* [5] */
+        -ms-text-size-adjust: 100%; /* [5] */
+    -moz-osx-font-smoothing: grayscale; /* [6] */
+     -webkit-font-smoothing: antialiased; /* [6] */
+             font-smoothing: antialiased; /* [6] */
+    -webkit-tap-highlight-color: rgba($color-black, 0); /* [7] */
+}

@@ -1,0 +1,15 @@
+/*------------------------------------*\
+    SHOW-HIDE
+\*------------------------------------*/
+
+/* Mobile visability */
+.m-hide {
+    display: none;
+    visibility: hidden;
+
+    @include breakpoint(lap-and-up) {
+        display: inline-block;
+        visibility: visible;
+    }
+
+}

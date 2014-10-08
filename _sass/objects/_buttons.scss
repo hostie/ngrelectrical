@@ -1,0 +1,116 @@
+/*-----------------------------------*\
+    BUTTONS
+\*-----------------------------------*/
+
+/**
+ * 1. Allow us to style box model properties.
+ * 2. Line different sized buttons up a little nicer.
+ * 3. Make buttons inherit font styles (often necessary when styling `input`s as
+ *    buttons).
+ * 4. Reset/normalize some styles.
+ * 5. Force all button-styled elements to appear clickable.
+ * 6. Fixes odd inner spacing in IE7.
+ * 7. Subtract the border size from the padding value so that buttons do not
+ *    grow larger as we add borders.
+ */
+.btn,
+%btn {
+    display: inline-block; /* [1] */
+    vertical-align: middle; /* [2] */
+    font: inherit; /* [3] */
+    text-align: center; /* [4] */
+    border: none; /* [4] */
+    margin: 0; /* [4] */
+    cursor: pointer; /* [5] */
+    overflow: visible; /* [6] */
+    padding: ($spacing-unit / 2 - 1) $spacing-unit - 1; /* [7] */
+    background-color: $color-primary;
+    border: 1px solid $color-primary; 
+
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: none; /* [4] */
+        color: $color-white;
+    }
+
+}
+
+/**
+ * Fix a Firefox bug whereby `input type="submit"` gains 2px extra padding.
+ */
+.btn::-moz-focus-inner,
+%btn::-moz-focus-inner {
+    border:  0;
+    padding: 0;
+}
+
+// Alter variables below to alter / enable button specific features. 
+$enable-btn--small:   false !default;
+$enable-btn--large:   false !default;
+$enable-btn--full:    false !default;
+$enable-btn--pill:    false !default;
+
+@if ($enable-btn--small == true) {
+
+    /**
+     * Small buttons.
+     */
+
+    .btn--small,
+    %btn--small {
+        padding: ($spacing-unit / 4 - 1) $spacing-unit / 2 - 1;
+    }
+
+}
+
+@if ($enable-btn--large == true) {
+
+    /**
+     * Large buttons.
+     */
+
+    .btn--large,
+    %btn--large {
+        padding: $spacing-unit - 1 ($spacing-unit * 2 - 1)
+    }
+
+}
+
+
+
+
+
+@if ($enable-btn--full == true) {
+
+    /**
+     * Full-width buttons.
+     */
+
+    .btn--full,
+    %btn--full {
+        width: 100%;
+    }
+
+}
+
+
+
+
+
+@if ($enable-btn--pill == true) {
+
+    /**
+     * Round-ended buttons.
+     *
+     * 1. Overly-large value to ensure the radius rounds the whole end of the
+     *    button.
+     */
+
+    .btn--pill,
+    %btn--pill {
+        border-radius: 100px; /* [1] */
+    }
+
+}

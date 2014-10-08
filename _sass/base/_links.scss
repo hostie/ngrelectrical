@@ -1,0 +1,14 @@
+/*-----------------------------------*\
+    LINKS
+\*-----------------------------------*/
+
+a {
+    text-decoration: none;
+    color: darken($color-text-link, 10);
+    transition: color .2s linear;
+
+    @include attention {
+        color: $color-text-link-hover;
+    }
+
+}

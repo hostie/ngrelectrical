@@ -1,0 +1,19 @@
+//-------------------------------------
+//  FONTS
+//-------------------------------------
+
+$sans-stack                  : 'Open Sans', sans-serif;
+$amp-stack                   : Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif !important;
+$mono-stack                  : Monaco, Courier New, monospace;
+
+$font-family-text            : $sans-stack;
+$font-family-text-alt        : $sans-stack;
+$font-family-heading         : $sans-stack;
+
+//-------------------------------------
+//  WEIGHTS
+//-------------------------------------
+
+$font-weight-light:   300;
+$font-weight-regular: 400;
+$font-weight-bold:    600;

@@ -1,0 +1,94 @@
+/*-----------------------------------*\
+    SITE-NAV
+\*-----------------------------------*/
+
+.site-nav {
+    @extend %clearfix;
+    padding-top: $spacing-unit / 4;
+    padding-bottom: $spacing-unit / 4;
+    font-weight: $font-weight-regular;
+    @include rgba(background, rgba($color-white, .9));
+    border-bottom: 1px solid $color-gray;
+
+    @include breakpoint(lap-and-up) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
+}
+
+.site-nav__home {
+    display: inline-block;
+    float: left;
+    width: 180px;
+    height: 44px;
+    @include trailer(.5); /* Spacing between logo and nav in mobile view */
+    background-image: url(../img/logo.png);
+
+    @include breakpoint(lap-and-up) {
+        margin-bottom: 0;
+    }
+
+    @include breakpoint(retina) {
+        background-image: url(../img/logo@2x.png);
+        background-size: 180px 44px;
+    }
+
+    span {
+        display: block;
+        text-indent: -9999px;
+    }
+
+}
+
+.site-nav__list {
+    @extend %reset-list;
+    float: left;
+
+    @include breakpoint(lap-and-up) {
+        float: right;
+        padding-top: 4px;
+
+        > li,
+        > li a {
+            display: inline-block;
+        }
+
+    }
+
+}
+
+.site-nav__item {
+    float: left;
+    width: 33.3333%;
+    @include trailer(.25); /* Spacing between nav and header in mobile view */
+
+    @include breakpoint(lap-and-up) {
+        width: auto;
+        margin-left: $spacing-unit;
+        margin-bottom: 0;
+    }
+
+}
+
+.site-nav__link {
+    padding-top: 6px;
+    padding-right: $spacing-unit;
+    padding-left: $spacing-unit;
+    padding-bottom: 6px;
+    color: $color-white;
+    background: darken($color-blue, 10);
+    border: 1px solid darken($color-blue, 10);
+
+    @include breakpoint(lap-and-up) {
+        @include attention {
+            text-decoration: none;
+            background: $color-blue;
+        }
+
+    }
+
+}

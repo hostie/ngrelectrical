@@ -1,0 +1,27 @@
+//-------------------------------------
+//  SIZES
+//-------------------------------------
+
+$font-size-small                : 12px;
+$font-size-regular              : 16px;
+$font-size-medium               : 18px;
+$font-size-large                : 24px;
+$font-size-x-large              : 32px;
+$font-size-xx-large             : 48px;
+$font-size-xxx-large            : 64px;
+$font-size-xxxx-large           : 96px;
+
+//-------------------------------------
+//  BASE
+//-------------------------------------
+
+$base-font-size                 : 16px;
+$base-line-height               : 24px;
+
+//-------------------------------------
+//  SPACING
+//-------------------------------------
+
+$spacing-unit                   : $base-line-height;
+$spacing-unit--small            : $spacing-unit / 2;
+$spacing-unit--large            : $spacing-unit * 2;

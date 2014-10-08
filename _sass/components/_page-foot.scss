@@ -1,0 +1,30 @@
+/*-----------------------------------*\
+    PAGE-FOOT
+\*-----------------------------------*/
+
+.page-foot {
+    @include padding-leader;
+    @include padding-trailer;
+
+    > .wrapper {
+        @extend %clearfix;
+    }
+
+}
+
+.page-foot__copy,
+.page-foot__credits {
+    @include span(12 no-gutters);
+
+    @include breakpoint(lap-and-up) {
+        width: auto;
+    }
+
+}
+
+.page-foot__credits {
+    @include breakpoint(lap-and-up) {
+        float: right;
+    }
+
+}

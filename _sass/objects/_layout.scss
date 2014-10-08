@@ -1,0 +1,35 @@
+/*-----------------------------------*\
+    LAYOUT
+\*-----------------------------------*/
+
+/**
+ * The layout system uses global `box-sizing: border-box;` and 
+ * `display: inline-block;` to create an extremely powerful, flexible
+ * alternative to the traditional grid system. Combine the layout items with
+ * the widths found in `helpers/_widths.scss`.
+ */
+
+/**
+ * Begin a layout group.
+ */
+.layout,
+%layout {
+    margin:  0;
+    padding: 0;
+    list-style: none;
+    margin-left: -$spacing-unit;
+}
+
+/**
+ * 1. Cause columns to stack side-by-side.
+ * 2. Space columns apart.
+ * 3. Align columns to the tops of each other.
+ * 4. Full-width unless told to behave otherwise.
+ */
+.layout__item,
+%layout__item {
+    display: inline-block; /* [1] */
+    padding-left: $spacing-unit; /* [2] */
+    vertical-align: top; /* [3] */
+    width: 100%; /* [4] */
+}
