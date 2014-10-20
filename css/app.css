@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*------------------------------------*\
     SCREEN - meshCSS
 \*------------------------------------*/
@@ -6,7 +5,6 @@
  * CONTENTS
  *
  * TOOLS
- * Susy.................Tools for layout.
  * Mixins...............mixcss default mixins.
  * A11y.................Accessibility mixins to make web accessibility easier.
  * Responsive...........Responsive tooling (requires breakpoints in settings).
@@ -16,7 +14,6 @@
  * Breakpoints..........Set up and name our breakpoints.
  * Colors...............Manage our color palette in isolation.
  * Fonts................Manage our fonts in isolation.
- * Grid.................Set up grid columns for layout.
  * Sizes................Set up spacings and type sizes.
  *
  * GENERIC
@@ -42,7 +39,6 @@
  * Media................The media object.
  * Flag.................The flag object.
  * Split................The split object.
- * Tables...............The table object.
  * Inline list..........The inline list object.
  * UI list..............The UI list.
  *
@@ -79,15 +75,13 @@ html {
   -ms-text-size-adjust: 100%;
   /* 2 */
   -webkit-text-size-adjust: 100%;
-  /* 2 */
-}
+  /* 2 */ }
 
 /**
  * Remove default margin.
  */
 body {
-  margin: 0;
-}
+  margin: 0; }
 
 /* HTML5 display definitions
    ========================================================================== */
@@ -96,33 +90,18 @@ body {
  * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
  * Correct `block` display not defined for `main` in IE 11.
  */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-main,
-nav,
-section,
-summary {
-  display: block;
-}
+article, aside, details, figcaption, figure, footer, header, main, nav, section, summary {
+  display: block; }
 
 /**
  * 1. Correct `inline-block` display not defined in IE 8/9.
  * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
  */
-audio,
-canvas,
-progress,
-video {
+audio, canvas, progress, video {
   display: inline-block;
   /* 1 */
   vertical-align: baseline;
-  /* 2 */
-}
+  /* 2 */ }
 
 /**
  * Prevent modern browsers from displaying `audio` without controls.
@@ -130,17 +109,14 @@ video {
  */
 audio:not([controls]) {
   display: none;
-  height: 0;
-}
+  height: 0; }
 
 /**
  * Address `[hidden]` styling not present in IE 8/9/10.
  * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
  */
-[hidden],
-template {
-  display: none;
-}
+[hidden], template {
+  display: none; }
 
 /* Links
    ========================================================================== */
@@ -148,16 +124,13 @@ template {
  * Remove the gray background color from active links in IE 10.
  */
 a {
-  background: transparent;
-}
+  background: transparent; }
 
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
-a:active,
-a:hover {
-  outline: 0;
-}
+a:active, a:hover {
+  outline: 0; }
 
 /* Text-level semantics
    ========================================================================== */
@@ -165,23 +138,19 @@ a:hover {
  * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
  */
 abbr[title] {
-  border-bottom: 1px dotted;
-}
+  border-bottom: 1px dotted; }
 
 /**
  * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
  */
-b,
-strong {
-  font-weight: bold;
-}
+b, strong {
+  font-weight: bold; }
 
 /**
  * Address styling not present in Safari and Chrome.
  */
 dfn {
-  font-style: italic;
-}
+  font-style: italic; }
 
 /**
  * Address variable `h1` font-size and margin within `section` and `article`
@@ -189,42 +158,35 @@ dfn {
  */
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
-}
+  margin: 0.67em 0; }
 
 /**
  * Address styling not present in IE 8/9.
  */
 mark {
   background: #ff0;
-  color: #000;
-}
+  color: #000; }
 
 /**
  * Address inconsistent and variable font size in all browsers.
  */
 small {
-  font-size: 80%;
-}
+  font-size: 80%; }
 
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
-sub,
-sup {
+sub, sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
-  vertical-align: baseline;
-}
+  vertical-align: baseline; }
 
 sup {
-  top: -0.5em;
-}
+  top: -0.5em; }
 
 sub {
-  bottom: -0.25em;
-}
+  bottom: -0.25em; }
 
 /* Embedded content
    ========================================================================== */
@@ -232,15 +194,13 @@ sub {
  * Remove border when inside `a` element in IE 8/9/10.
  */
 img {
-  border: 0;
-}
+  border: 0; }
 
 /**
  * Correct overflow not hidden in IE 9/10/11.
  */
 svg:not(:root) {
-  overflow: hidden;
-}
+  overflow: hidden; }
 
 /* Grouping content
    ========================================================================== */
@@ -248,8 +208,7 @@ svg:not(:root) {
  * Address margin not present in IE 8/9 and Safari.
  */
 figure {
-  margin: 1em 40px;
-}
+  margin: 1em 40px; }
 
 /**
  * Address differences between Firefox and other browsers.
@@ -257,26 +216,20 @@ figure {
 hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  height: 0;
-}
+  height: 0; }
 
 /**
  * Contain overflow in all browsers.
  */
 pre {
-  overflow: auto;
-}
+  overflow: auto; }
 
 /**
  * Address odd `em`-unit font size rendering in all browsers.
  */
-code,
-kbd,
-pre,
-samp {
+code, kbd, pre, samp {
   font-family: monospace, monospace;
-  font-size: 1em;
-}
+  font-size: 1em; }
 
 /* Forms
    ========================================================================== */
@@ -290,25 +243,19 @@ samp {
  * 2. Correct font properties not being inherited.
  * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
-button,
-input,
-optgroup,
-select,
-textarea {
+button, input, optgroup, select, textarea {
   color: inherit;
   /* 1 */
   font: inherit;
   /* 2 */
   margin: 0;
-  /* 3 */
-}
+  /* 3 */ }
 
 /**
  * Address `overflow` set to `hidden` in IE 8/9/10/11.
  */
 button {
-  overflow: visible;
-}
+  overflow: visible; }
 
 /**
  * Address inconsistent `text-transform` inheritance for `button` and `select`.
@@ -316,10 +263,8 @@ button {
  * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
  * Correct `select` style inheritance in Firefox.
  */
-button,
-select {
-  text-transform: none;
-}
+button, select {
+  text-transform: none; }
 
 /**
  * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
@@ -328,40 +273,31 @@ select {
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
  */
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
-  /* 3 */
-}
+  /* 3 */ }
 
 /**
  * Re-set default cursor for disabled elements.
  */
-button[disabled],
-html input[disabled] {
-  cursor: default;
-}
+button[disabled], html input[disabled] {
+  cursor: default; }
 
 /**
  * Remove inner padding and border in Firefox 4+.
  */
-button::-moz-focus-inner,
-input::-moz-focus-inner {
+button::-moz-focus-inner, input::-moz-focus-inner {
   border: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 /**
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
 input {
-  line-height: normal;
-}
+  line-height: normal; }
 
 /**
  * It's recommended that you don't attempt to style these elements.
@@ -370,24 +306,20 @@ input {
  * 1. Address box sizing set to `content-box` in IE 8/9/10.
  * 2. Remove excess padding in IE 8/9/10.
  */
-input[type="checkbox"],
-input[type="radio"] {
+input[type="checkbox"], input[type="radio"] {
   -moz-box-sizing: border-box;
        box-sizing: border-box;
   /* 1 */
   padding: 0;
-  /* 2 */
-}
+  /* 2 */ }
 
 /**
  * Fix the cursor style for Chrome's increment/decrement buttons. For certain
  * `font-size` values of the `input`, it causes the cursor style of the
  * decrement button to change from `default` to `text`.
  */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
 
 /**
  * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
@@ -399,18 +331,15 @@ input[type="search"] {
   /* 1 */
   -moz-box-sizing: content-box;
   /* 2 */
-  box-sizing: content-box;
-}
+  box-sizing: content-box; }
 
 /**
  * Remove inner padding and search cancel button in Safari and Chrome on OS X.
  * Safari (but not Chrome) clips the cancel button when the search input has
  * padding (and `textfield` appearance).
  */
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
 
 /**
  * Define consistent border, margin, and padding.
@@ -418,8 +347,7 @@ input[type="search"]::-webkit-search-decoration {
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
-}
+  padding: 0.35em 0.625em 0.75em; }
 
 /**
  * 1. Correct `color` not being inherited in IE 8/9/10/11.
@@ -429,23 +357,20 @@ legend {
   border: 0;
   /* 1 */
   padding: 0;
-  /* 2 */
-}
+  /* 2 */ }
 
 /**
  * Remove default vertical scrollbar in IE 8/9/10/11.
  */
 textarea {
-  overflow: auto;
-}
+  overflow: auto; }
 
 /**
  * Don't inherit the `font-weight` (applied by a rule above).
  * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
  */
 optgroup {
-  font-weight: bold;
-}
+  font-weight: bold; }
 
 /* Tables
    ========================================================================== */
@@ -454,13 +379,10 @@ optgroup {
  */
 table {
   border-collapse: collapse;
-  border-spacing: 0;
-}
+  border-spacing: 0; }
 
-td,
-th {
-  padding: 0;
-}
+td, th {
+  padding: 0; }
 
 /*-----------------------------------*\
     RESET
@@ -469,16 +391,9 @@ th {
  * As well as using normalize.css, it is often advantageous to remove all
  * margins from certain elements.
  */
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-dl, dd, ol, ul,
-form, fieldset, legend,
-figure,
-table, th, td, caption,
-hr {
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, dl, dd, ol, ul, form, fieldset, legend, figure, table, th, td, caption, hr {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 /*-----------------------------------*\
     BOX-SIZING
@@ -491,13 +406,11 @@ hr {
  */
 html {
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 *, *:before, *:after {
   -moz-box-sizing: inherit;
-  box-sizing: inherit;
-}
+  box-sizing: inherit; }
 
 /**
  * BASE
@@ -522,7 +435,7 @@ html {
  * 7. Remove gray highlight when tapping Links in Mobile Safari.
  */
 html {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   /* [1] */
   font-size: 1em;
   /* [2] */
@@ -546,8 +459,7 @@ html {
   font-smoothing: antialiased;
   /* [6] */
   -webkit-tap-highlight-color: rgba(51, 51, 51, 0);
-  /* [7] */
-}
+  /* [7] */ }
 
 /*-----------------------------------*\
     SHARED
@@ -556,22 +468,15 @@ html {
  * Where `margin-bottom` is concerned,this value will be the same as the
  * base line-height. This allows us to keep a consistent vertical rhythm.
  */
-h1, h2, h3, h4, h5, h6,
-ul, ol, dl,
-blockquote, p, address,
-table,
-fieldset, figure,
-pre {
+h1, h2, h3, h4, h5, h6, ul, ol, dl, blockquote, p, address, table, fieldset, figure, pre {
   margin-bottom: 24px;
-  margin-bottom: 1.5rem;
-}
+  margin-bottom: 1.5rem; }
 
 /* Extend Placeholders */
 .site-nav__list {
   margin: 0;
   padding: 0;
-  list-style: none;
-}
+  list-style: none; }
 
 /*-----------------------------------*\
     LINKS
@@ -579,12 +484,10 @@ pre {
 a {
   text-decoration: none;
   color: #5286c0;
-  -webkit-transition: color .2s linear;
-          transition: color .2s linear;
-}
-a:hover, a:active, a:focus {
-  color: #B22222;
-}
+  -webkit-transition: color 0.2s linear;
+          transition: color 0.2s linear; }
+  a:hover, a:active, a:focus {
+    color: #B22222; }
 
 /*------------------------------------*\
     HEADINGS
@@ -594,133 +497,99 @@ a:hover, a:active, a:focus {
  * hierarchy. Variables defined in settings/_sizes.scss for sizes.
  */
 h1, h2, h3, h4 {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   color: #B22222;
-  text-rendering: optimizelegibility;
-}
+  text-rendering: optimizelegibility; }
 
-h1,
-.as-h1 {
+h1, .as-h1 {
   font-size: 32px;
   font-size: 2rem;
   line-height: 1.5;
   -webkit-transition: all 200ms;
           transition: all 200ms;
-  color: #77A0CE;
-}
-@media screen and (min-width: 45em) {
-  h1,
-  .as-h1 {
-    font-size: 48px;
-    font-size: 3rem;
-    line-height: 1;
-  }
-}
-@media screen and (min-width: 64em) {
-  h1,
-  .as-h1 {
-    font-size: 64px;
-    font-size: 4rem;
-    line-height: 1.125;
-  }
-}
-@media screen and (min-width: 90.0625em) {
-  h1,
-  .as-h1 {
-    font-size: 96px;
-    font-size: 6rem;
-    line-height: 1;
-  }
-}
+  color: #77A0CE; }
+  @media screen and (min-width: 45em) {
+    h1, .as-h1 {
+      font-size: 48px;
+      font-size: 3rem;
+      line-height: 1; } }
+  @media screen and (min-width: 64em) {
+    h1, .as-h1 {
+      font-size: 64px;
+      font-size: 4rem;
+      line-height: 1.125; } }
+  @media screen and (min-width: 90.0625em) {
+    h1, .as-h1 {
+      font-size: 96px;
+      font-size: 6rem;
+      line-height: 1; } }
 
-h2,
-.as-h2 {
+h2, .as-h2 {
   font-size: 24px;
   font-size: 1.5rem;
-  line-height: 1;
-}
-@media screen and (min-width: 45em) {
-  h2,
-  .as-h2 {
-    font-size: 32px;
-    font-size: 2rem;
-    line-height: 1.5;
-  }
-}
-@media screen and (min-width: 64em) {
-  h2,
-  .as-h2 {
-    font-size: 48px;
-    font-size: 3rem;
-    line-height: 1;
-  }
-}
+  line-height: 1; }
+  @media screen and (min-width: 45em) {
+    h2, .as-h2 {
+      font-size: 32px;
+      font-size: 2rem;
+      line-height: 1.5; } }
+  @media screen and (min-width: 64em) {
+    h2, .as-h2 {
+      font-size: 48px;
+      font-size: 3rem;
+      line-height: 1; } }
 
-h3,
-.as-h3 {
+h3, .as-h3 {
   font-size: 18px;
   font-size: 1.125rem;
-  line-height: 1.3333333333;
-}
+  line-height: 1.3333333333; }
 
-h4,
-.as-h4 {
+h4, .as-h4 {
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5;
-  font-weight: 600;
-}
+  font-weight: 600; }
 
 /*-----------------------------------*\
     TYPE
 \*-----------------------------------*/
 /* Emboldened elements */
 strong, b {
-  font-weight: 600;
-}
+  font-weight: 600; }
 
 /* Empty paragrapghs */
 p:empty {
-  display: none;
-}
+  display: none; }
 
 /* Spaced text */
 .spaced {
-  letter-spacing: 1px;
-}
+  letter-spacing: 1px; }
 
 /* Horizontal rules */
 hr {
   border: none;
   border-bottom: 1px solid #77A0CE;
-  margin-bottom: 23px;
-}
+  margin-bottom: 23px; }
 
 /*-----------------------------------*\
     LISTS
 \*-----------------------------------*/
 ul {
-  padding-left: 20px;
-}
+  padding-left: 20px; }
 
 ul {
-  list-style: square outside;
-}
+  list-style: square outside; }
 
 ol {
-  list-style: decimal outside;
-}
+  list-style: decimal outside; }
 
 /* Remove vertical spacing when nesting lists */
-li > ul,
-li > ol {
-  margin-bottom: 0;
-}
+li > ul, li > ol {
+  margin-bottom: 0; }
 
 dl dt {
-  font-weight: 600;
-}
+  font-weight: 600; }
 
 /*-----------------------------------*\
     MEDIA
@@ -732,19 +601,15 @@ dl dt {
  *    elements when they are dropped into a page as-is. Safer alternative to
  *    using `display: block;`.
  */
-img,
-video,
-object {
+img, video, object {
   max-width: 100%;
-  /* [1] */
-}
+  /* [1] */ }
 
 img {
   font-style: italic;
   /* [2] */
   vertical-align: middle;
-  /* [3] */
-}
+  /* [3] */ }
 
 /**
  * 1. Google Maps breaks if `max-width: 100%` acts upon it; use their selector
@@ -752,12 +617,9 @@ img {
  * 2. If a `width` and/or `height` attribute have been explicitly defined, let’s
  *    not make the image fluid.
  */
-.gm-style img,
-img[width],
-img[height] {
+.gm-style img, img[width], img[height] {
   /* [2] */
-  max-width: none;
-}
+  max-width: none; }
 
 /**
  * OBJECTS
@@ -767,18 +629,13 @@ img[height] {
 \*-----------------------------------*/
 .wrapper {
   max-width: 90%;
-  margin: 0 auto;
-}
-@media screen and (min-width: 64em) {
-  .wrapper {
-    max-width: 80%;
-  }
-}
-@media screen and (min-width: 90.0625em) {
-  .wrapper {
-    max-width: 60%;
-  }
-}
+  margin: 0 auto; }
+  @media screen and (min-width: 64em) {
+    .wrapper {
+      max-width: 80%; } }
+  @media screen and (min-width: 90.0625em) {
+    .wrapper {
+      max-width: 60%; } }
 
 /*-----------------------------------*\
     LAYOUT
@@ -796,8 +653,7 @@ img[height] {
   margin: 0;
   padding: 0;
   list-style: none;
-  margin-left: -24px;
-}
+  margin-left: -24px; }
 
 /**
  * 1. Cause columns to stack side-by-side.
@@ -813,8 +669,7 @@ img[height] {
   vertical-align: top;
   /* [3] */
   width: 100%;
-  /* [4] */
-}
+  /* [4] */ }
 
 /**
  * COMPONENTS
@@ -823,8 +678,7 @@ img[height] {
     PAGE-HEAD
 \*-----------------------------------*/
 .page-head {
-  position: relative;
-}
+  position: relative; }
 
 /*-----------------------------------*\
     SITE-NAV
@@ -835,17 +689,14 @@ img[height] {
   font-weight: 400;
   background: white;
   background: rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid #ddd;
-}
-@media screen and (min-width: 45em) {
-  .site-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-  }
-}
+  border-bottom: 1px solid #ddd; }
+  @media screen and (min-width: 45em) {
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1; } }
 
 .site-nav__home {
   display: inline-block;
@@ -854,51 +705,37 @@ img[height] {
   height: 44px;
   margin-bottom: 12px;
   /* Spacing between logo and nav in mobile view */
-  background-image: url(../img/logo.png);
-}
-@media screen and (min-width: 45em) {
-  .site-nav__home {
-    margin-bottom: 0;
-  }
-}
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .site-nav__home {
-    background-image: url(../img/logo@2x.png);
-    background-size: 180px 44px;
-  }
-}
-.site-nav__home span {
-  display: block;
-  text-indent: -9999px;
-}
+  background-image: url(../img/logo.png); }
+  @media screen and (min-width: 45em) {
+    .site-nav__home {
+      margin-bottom: 0; } }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .site-nav__home {
+      background-image: url(../img/logo@2x.png);
+      background-size: 180px 44px; } }
+  .site-nav__home span {
+    display: block;
+    text-indent: -9999px; }
 
 .site-nav__list {
-  float: left;
-}
-@media screen and (min-width: 45em) {
-  .site-nav__list {
-    float: right;
-    padding-top: 4px;
-  }
-  .site-nav__list > li,
-  .site-nav__list > li a {
-    display: inline-block;
-  }
-}
+  float: left; }
+  @media screen and (min-width: 45em) {
+    .site-nav__list {
+      float: right;
+      padding-top: 4px; }
+      .site-nav__list > li, .site-nav__list > li a {
+        display: inline-block; } }
 
 .site-nav__item {
   float: left;
   width: 33.3333%;
   margin-bottom: 6px;
-  /* Spacing between nav and header in mobile view */
-}
-@media screen and (min-width: 45em) {
-  .site-nav__item {
-    width: auto;
-    margin-left: 24px;
-    margin-bottom: 0;
-  }
-}
+  /* Spacing between nav and header in mobile view */ }
+  @media screen and (min-width: 45em) {
+    .site-nav__item {
+      width: auto;
+      margin-left: 24px;
+      margin-bottom: 0; } }
 
 .site-nav__link {
   padding-top: 6px;
@@ -907,14 +744,12 @@ img[height] {
   padding-bottom: 6px;
   color: #fff;
   background: #5286c0;
-  border: 1px solid #5286c0;
-}
-@media screen and (min-width: 45em) {
-  .site-nav__link:hover, .site-nav__link:active, .site-nav__link:focus {
-    text-decoration: none;
-    background: #77A0CE;
-  }
-}
+  border: 1px solid #5286c0; }
+  @media screen and (min-width: 45em) {
+    .site-nav__link:hover, .site-nav__link:active, .site-nav__link:focus {
+      text-decoration: none;
+      background: #77A0CE; }
+ }
 
 /*-----------------------------------*\
     SECTIONS
@@ -922,57 +757,41 @@ img[height] {
 .section {
   padding-top: 24px;
   padding-bottom: 24px;
-  background: #E7EAEF;
-}
-@media screen and (min-width: 45em) {
-  .section {
-    padding-top: 72px;
-    padding-bottom: 72px;
-  }
-}
+  background: #E7EAEF; }
+  @media screen and (min-width: 45em) {
+    .section {
+      padding-top: 72px;
+      padding-bottom: 72px; } }
 
 .section--dark {
-  background: #d8dde5;
-}
+  background: #d8dde5; }
 
 @media screen and (min-width: 45em) {
   .section__about {
-    padding-top: 96px;
-  }
-}
+    padding-top: 96px; } }
 
 @media screen and (min-width: 45em) {
   .section__contact {
     padding-top: 96px;
-    padding-bottom: 96px;
-  }
-}
+    padding-bottom: 96px; } }
 
 /*-----------------------------------*\
     PAGE-FOOT
 \*-----------------------------------*/
 .page-foot {
   padding-top: 24px;
-  padding-bottom: 24px;
-}
+  padding-bottom: 24px; }
 
-.page-foot__copy,
-.page-foot__credits {
-  width: 100%;
+.page-foot__copy, .page-foot__credits {
   float: left;
-}
-@media screen and (min-width: 45em) {
-  .page-foot__copy,
-  .page-foot__credits {
-    width: auto;
-  }
-}
+  width: 100%; }
+  @media screen and (min-width: 45em) {
+    .page-foot__copy, .page-foot__credits {
+      width: auto; } }
 
 @media screen and (min-width: 45em) {
   .page-foot__credits {
-    float: right;
-  }
-}
+    float: right; } }
 
 /**
  * HELPERS
@@ -985,13 +804,10 @@ img[height] {
  * Extend the clearfix class with Sass to avoid the `.clearfix` class appearing
  * over and over in your markup.
  */
-.clearfix:after,
-.site-nav:after,
-.page-foot > .wrapper:after {
+.clearfix:after, .site-nav:after, .page-foot > .wrapper:after {
   content: "";
   display: table;
-  clear: both;
-}
+  clear: both; }
 
 /*------------------------------------*\
     WIDTHS
@@ -1004,15 +820,13 @@ img[height] {
  * Whole.
  */
 .one-whole {
-  width: 100% !important;
-}
+  width: 100% !important; }
 
 /**
  * Halves.
  */
 .one-half {
-  width: 50% !important;
-}
+  width: 50% !important; }
 
 /*------------------------------------*\
     WIDTHS-RESPONSIVE
@@ -1022,177 +836,136 @@ img[height] {
  */
 @media screen and (min-width: 45em) {
   /**
-   * Whole.
-   */
+             * Whole.
+             */
   .lap-and-up-one-whole {
-    width: 100% !important;
-  }
+    width: 100% !important; }
 
   /**
-   * Halves.
-   */
-  .lap-and-up-one-half,
-  .lap-and-up-two-quarters,
-  .lap-and-up-five-tenths {
-    width: 50% !important;
-  }
+             * Halves.
+             */
+  .lap-and-up-one-half, .lap-and-up-two-quarters, .lap-and-up-five-tenths {
+    width: 50% !important; }
 
   /**
-   * Thirds.
-   */
+             * Thirds.
+             */
   .lap-and-up-one-third {
-    width: 33.3333333% !important;
-  }
+    width: 33.3333333% !important; }
 
   .lap-and-up-two-thirds {
-    width: 66.6666666% !important;
-  }
+    width: 66.6666666% !important; }
 
   /**
-   * Quarters.
-   */
+             * Quarters.
+             */
   .lap-and-up-one-quarter {
-    width: 25% !important;
-  }
+    width: 25% !important; }
 
   .lap-and-up-three-quarters {
-    width: 75% !important;
-  }
+    width: 75% !important; }
 
   /**
-   * Fifths.
-   */
-  .lap-and-up-one-fifth,
-  .lap-and-up-two-tenths {
-    width: 20% !important;
-  }
+             * Fifths.
+             */
+  .lap-and-up-one-fifth, .lap-and-up-two-tenths {
+    width: 20% !important; }
 
-  .lap-and-up-two-fifths,
-  .lap-and-up-four-tenths {
-    width: 40% !important;
-  }
+  .lap-and-up-two-fifths, .lap-and-up-four-tenths {
+    width: 40% !important; }
 
-  .lap-and-up-three-fifths,
-  .lap-and-up-six-tenths {
-    width: 60% !important;
-  }
+  .lap-and-up-three-fifths, .lap-and-up-six-tenths {
+    width: 60% !important; }
 
-  .lap-and-up-four-fifths,
-  .lap-and-up-eight-tenths {
-    width: 80% !important;
-  }
+  .lap-and-up-four-fifths, .lap-and-up-eight-tenths {
+    width: 80% !important; }
 
   /**
-   * Tenths.
-   */
+             * Tenths.
+             */
   .lap-and-up-one-tenth {
-    width: 10% !important;
-  }
+    width: 10% !important; }
 
   .lap-and-up-three-tenths {
-    width: 30% !important;
-  }
+    width: 30% !important; }
 
   .lap-and-up-seven-tenths {
-    width: 70% !important;
-  }
+    width: 70% !important; }
 
   .lap-and-up-nine-tenths {
-    width: 90% !important;
-  }
-}
+    width: 90% !important; }
+ }
+
 @media screen and (min-width: 64em) {
   /**
-   * Whole.
-   */
+             * Whole.
+             */
   .desk-one-whole {
-    width: 100% !important;
-  }
+    width: 100% !important; }
 
   /**
-   * Halves.
-   */
-  .desk-one-half,
-  .desk-two-quarters,
-  .desk-five-tenths {
-    width: 50% !important;
-  }
+             * Halves.
+             */
+  .desk-one-half, .desk-two-quarters, .desk-five-tenths {
+    width: 50% !important; }
 
   /**
-   * Thirds.
-   */
+             * Thirds.
+             */
   .desk-one-third {
-    width: 33.3333333% !important;
-  }
+    width: 33.3333333% !important; }
 
   .desk-two-thirds {
-    width: 66.6666666% !important;
-  }
+    width: 66.6666666% !important; }
 
   /**
-   * Quarters.
-   */
+             * Quarters.
+             */
   .desk-one-quarter {
-    width: 25% !important;
-  }
+    width: 25% !important; }
 
   .desk-three-quarters {
-    width: 75% !important;
-  }
+    width: 75% !important; }
 
   /**
-   * Fifths.
-   */
-  .desk-one-fifth,
-  .desk-two-tenths {
-    width: 20% !important;
-  }
+             * Fifths.
+             */
+  .desk-one-fifth, .desk-two-tenths {
+    width: 20% !important; }
 
-  .desk-two-fifths,
-  .desk-four-tenths {
-    width: 40% !important;
-  }
+  .desk-two-fifths, .desk-four-tenths {
+    width: 40% !important; }
 
-  .desk-three-fifths,
-  .desk-six-tenths {
-    width: 60% !important;
-  }
+  .desk-three-fifths, .desk-six-tenths {
+    width: 60% !important; }
 
-  .desk-four-fifths,
-  .desk-eight-tenths {
-    width: 80% !important;
-  }
+  .desk-four-fifths, .desk-eight-tenths {
+    width: 80% !important; }
 
   /**
-   * Tenths.
-   */
+             * Tenths.
+             */
   .desk-one-tenth {
-    width: 10% !important;
-  }
+    width: 10% !important; }
 
   .desk-three-tenths {
-    width: 30% !important;
-  }
+    width: 30% !important; }
 
   .desk-seven-tenths {
-    width: 70% !important;
-  }
+    width: 70% !important; }
 
   .desk-nine-tenths {
-    width: 90% !important;
-  }
-}
+    width: 90% !important; }
+ }
+
 /*------------------------------------*\
     SHOW-HIDE
 \*------------------------------------*/
 /* Mobile visability */
 .m-hide {
   display: none;
-  visibility: hidden;
-}
-@media screen and (min-width: 45em) {
-  .m-hide {
-    display: inline-block;
-    visibility: visible;
-  }
-}
+  visibility: hidden; }
+  @media screen and (min-width: 45em) {
+    .m-hide {
+      display: inline-block;
+      visibility: visible; } }

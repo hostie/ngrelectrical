@@ -6,7 +6,6 @@
  * CONTENTS
  *
  * TOOLS
- * Susy.................Tools for layout.
  * Mixins...............mixcss default mixins.
  * A11y.................Accessibility mixins to make web accessibility easier.
  * Responsive...........Responsive tooling (requires breakpoints in settings).
@@ -16,7 +15,6 @@
  * Breakpoints..........Set up and name our breakpoints.
  * Colors...............Manage our color palette in isolation.
  * Fonts................Manage our fonts in isolation.
- * Grid.................Set up grid columns for layout.
  * Sizes................Set up spacings and type sizes.
  *
  * GENERIC
@@ -42,7 +40,6 @@
  * Media................The media object.
  * Flag.................The flag object.
  * Split................The split object.
- * Tables...............The table object.
  * Inline list..........The inline list object.
  * UI list..............The UI list.
  *
@@ -63,7 +60,6 @@
 /**
  * TOOLS
  */
-@import "tools/susy";
 @import "tools/mixins";
 @import "tools/a11y";
 @import "tools/responsive";
@@ -76,7 +72,6 @@
 @import "settings/breakpoints";
 @import "settings/colors";
 @import "settings/fonts";
-@import "settings/grid";
 @import "settings/sizes";
 
 

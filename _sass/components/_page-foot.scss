@@ -14,7 +14,8 @@
 
 .page-foot__copy,
 .page-foot__credits {
-    @include span(12 no-gutters);
+    float: left;
+    width: 100%;
 
     @include breakpoint(lap-and-up) {
         width: auto;
