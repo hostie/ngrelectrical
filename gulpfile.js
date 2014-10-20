@@ -11,17 +11,37 @@ var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
 
 var AUTOPREFIXER_BROWSERS = [
-    'last 2 versions',
-    'ie >= 8',
-    'Firefox ESR',
-    'Opera 12.1',
-    'ff >= 30',
-    'Chrome >= 34'
+    'Android >= 4.4',
+    'Chrome >= 34',
+    'Firefox >= 24', // Firefox 24 is the latest ESR
+    'Explorer >= 9',
+    'iOS >= 7',
+    'Opera >= 12.1',
+    'Safari >= 6'
 ];
 
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
+
+// Compile Sass and prefix Styles
+gulp.task('sass', function () {
+    return gulp.src('_sass/*.scss')
+        .pipe($.sass({
+            precision: 10
+        }))
+        .on('error', console.error.bind(console))
+        .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
+        .pipe(gulp.dest('_site/css'))
+        .pipe(gulp.dest('css'))
+        // Minify Styles
+        .pipe($.if('*.css', $.csso()))
+        .pipe($.rename({suffix: '.min'}))
+        .pipe(gulp.dest('_site/css'))
+        .pipe(gulp.dest('css'))
+        .pipe($.size({title: 'css'}))
+        .pipe(reload({stream:true}));
+});
 
 // JavaScript
 gulp.task('js', function () {
@@ -39,27 +59,6 @@ gulp.task('js', function () {
         .pipe($.size({title: 'js'}));
 });
 
-// Compile Sass and prefix Styles
-gulp.task('sass', function () {
-    return gulp.src('_sass/*.scss')
-        .pipe($.rubySass({
-            style: 'expanded',
-            precision: 10,
-            'sourcemap=none': true
-        }))
-        .on('error', console.error.bind(console))
-        .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
-        .pipe(gulp.dest('_site/css'))
-        .pipe(gulp.dest('css'))
-        // Minify Styles
-        .pipe($.if('*.css', $.csso()))
-        .pipe($.rename({suffix: '.min'}))
-        .pipe(gulp.dest('_site/css'))
-        .pipe(gulp.dest('css'))
-        .pipe($.size({title: 'css'}))
-        .pipe(reload({stream:true}));
-});
-
 // Optimize Images
 gulp.task('imgs', function () {
     return gulp.src('img/**/*')
@@ -68,7 +67,6 @@ gulp.task('imgs', function () {
             interlaced: true
         }))
         .pipe(gulp.dest('_site/img'))
-        .pipe(gulp.dest('img'))
         .pipe($.size({title: 'imgs'}));
 });
 
@@ -85,35 +83,27 @@ gulp.task('jekyll-rebuild', ['jekyll'], function () {
 });
 
 // Jekyll Server
-gulp.task('serve', ['js', 'sass', 'jekyll'], function() {
+gulp.task('serve', ['jekyll', 'sass', 'js'], function() {
     browserSync({
         notify: false,
+        browser: 'google chrome canary',
         server: ['_site']
     });
 
     // Watch Files For Changes & Reload
-    gulp.watch('_sass/**/*.scss', ['sass']);
-    gulp.watch('img/**/*', ['imgs', reload]);
-    gulp.watch(['*.{html,md}', '_posts/*'], ['jekyll-rebuild']);
     gulp.watch(['_includes/*.html', '_layouts/*.html'], ['jekyll-rebuild']);
+    gulp.watch(['*.{html,md}', '_posts/*'], ['jekyll-rebuild']);
+    gulp.watch('_sass/**/*.scss', ['sass']);
+    gulp.watch('js/**/*.js', ['js', reload]);
+    gulp.watch('img/**/*', ['imgs', reload]);
 });
 
 // Clean Output Directory
 gulp.task('clean', function (done) {
-    require('del')([
-        '_site',
-        '.sass-cache'
-    ], done);
+    require('del')(['_site', '.sass-cache'], done);
 });
 
-// Build Files & Serve, the Default Task
-gulp.task('default', ['serve']);
-
 // Build Files
-gulp.task('build', function (done) {
-    runSequence(
-        'clean',
-        ['js', 'sass', 'imgs'],
-        'jekyll',
-    done);
+gulp.task('default', function (done) {
+    runSequence('clean', ['jekyll', 'sass', 'js', 'imgs'], done);
 });
