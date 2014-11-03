@@ -11,23 +11,9 @@ ul, ol, dl,
 blockquote, p, address,
 table,
 fieldset, figure,
-pre, 
+pre,
 %margin-bottom {
     margin-bottom: $spacing-unit;
     margin-bottom: ($spacing-unit / $base-font-size) * 1rem;
 }
 
-/* Extend Placeholders */
-%reset-margin  {
-    margin: 0;
-}
-
-%reset-padding {
-    padding: 0;
-}
-
-%reset-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}

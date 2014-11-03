@@ -4,9 +4,9 @@
 
 .site-nav {
     @extend %clearfix;
-    padding-top: $spacing-unit / 4;
-    padding-bottom: $spacing-unit / 4;
-    font-weight: $font-weight-regular;
+    padding-top: quarter($spacing-unit);
+    padding-bottom: quarter($spacing-unit);
+    font-weight: normal;
     @include rgba(background, rgba($color-white, .9));
     border-bottom: 1px solid $color-gray;
 

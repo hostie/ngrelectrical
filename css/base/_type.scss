@@ -4,7 +4,7 @@
 
 /* Emboldened elements */
 strong, b {
-    font-weight: $font-weight-bold;
+    @include font-weight(bold);
 }
 
 /* Empty paragrapghs */

@@ -1,0 +1,11 @@
+/*------------------------------------*\
+    SHOW-HIDE
+\*------------------------------------*/
+
+/* Mobile hide */
+.m-hide {
+    @include breakpoint(palm) {
+        @include is-hidden;
+    }
+
+}

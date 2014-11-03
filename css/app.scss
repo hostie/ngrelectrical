@@ -1,13 +1,13 @@
 /*------------------------------------*\
-    SCREEN - meshCSS
+    SCREEN
 \*------------------------------------*/
 
 /**
  * CONTENTS
  *
  * TOOLS
- * Mixins...............mixcss default mixins.
- * A11y.................Accessibility mixins to make web accessibility easier.
+ * Functions............Default functions.
+ * Mixins...............Default mixins.
  * Responsive...........Responsive tooling (requires breakpoints in settings).
  * Rhythm...............Tools for creating a vertical rhythm for your project.
  *
@@ -45,6 +45,7 @@
  * Clearfix.............Clear floats.
  * Widths...............Width helper classes.
  * Widths-responsive....Responsive width helpers.
+ * Spacing..............Micro-level spacing.
  * Show/hide............Helpers to show and hide stuff.
  */
 
@@ -52,8 +53,8 @@
 /**
  * TOOLS
  */
+@import "tools/functions";
 @import "tools/mixins";
-@import "tools/a11y";
 @import "tools/responsive";
 @import "tools/rhythm";
 
@@ -109,4 +110,5 @@
 @import "helpers/clearfix";
 @import "helpers/widths";
 @import "helpers/widths-responsive";
+//@import "helpers/spacing";
 @import "helpers/show-hide";

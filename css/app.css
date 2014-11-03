@@ -1,12 +1,12 @@
 /*------------------------------------*\
-    SCREEN - meshCSS
+    SCREEN
 \*------------------------------------*/
 /**
  * CONTENTS
  *
  * TOOLS
- * Mixins...............mixcss default mixins.
- * A11y.................Accessibility mixins to make web accessibility easier.
+ * Functions............Default functions.
+ * Mixins...............Default mixins.
  * Responsive...........Responsive tooling (requires breakpoints in settings).
  * Rhythm...............Tools for creating a vertical rhythm for your project.
  *
@@ -44,6 +44,7 @@
  * Clearfix.............Clear floats.
  * Widths...............Width helper classes.
  * Widths-responsive....Responsive width helpers.
+ * Spacing..............Micro-level spacing.
  * Show/hide............Helpers to show and hide stuff.
  */
 /**
@@ -387,6 +388,20 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre, dl, dd, ol, ul, form, fieldset, lege
   margin: 0;
   padding: 0; }
 
+/**
+ * Reset margins from the elements via extend.
+ */
+/**
+ * Reset padding from the elements via extend.
+ */
+/**
+ * Remove bullets and indents from lists via extend.
+ */
+.site-nav__list {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
 /*-----------------------------------*\
     BOX-SIZING
 \*-----------------------------------*/
@@ -463,12 +478,6 @@ html {
 h1, h2, h3, h4, h5, h6, ul, ol, dl, blockquote, p, address, table, fieldset, figure, pre {
   margin-bottom: 24px;
   margin-bottom: 1.5rem; }
-
-/* Extend Placeholders */
-.site-nav__list {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
 
 /*-----------------------------------*\
     LINKS
@@ -580,9 +589,6 @@ ol {
 li > ul, li > ol {
   margin-bottom: 0; }
 
-dl dt {
-  font-weight: 600; }
-
 /*-----------------------------------*\
     MEDIA
 \*-----------------------------------*/
@@ -678,7 +684,7 @@ img {
 .site-nav {
   padding-top: 6px;
   padding-bottom: 6px;
-  font-weight: 400;
+  font-weight: normal;
   background: white;
   background: rgba(255, 255, 255, 0.9);
   border-bottom: 1px solid #ddd; }
@@ -953,11 +959,8 @@ img {
 /*------------------------------------*\
     SHOW-HIDE
 \*------------------------------------*/
-/* Mobile visability */
-.m-hide {
-  display: none;
-  visibility: hidden; }
-  @media screen and (min-width: 45em) {
-    .m-hide {
-      display: inline-block;
-      visibility: visible; } }
+/* Mobile hide */
+@media screen and (max-width: 44.9375em) {
+  .m-hide {
+    display: none !important;
+    visibility: hidden !important; } }

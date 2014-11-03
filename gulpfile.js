@@ -26,7 +26,8 @@ var messages = {
 
 // Compile Sass and prefix Styles
 gulp.task('sass', function () {
-    return gulp.src('_sass/*.scss')
+    return gulp.src('css/*.scss')
+        .pipe($.changed('sass', {extension: '.scss'}))
         .pipe($.sass({
             precision: 10
         }))
@@ -39,8 +40,7 @@ gulp.task('sass', function () {
         .pipe($.rename({suffix: '.min'}))
         .pipe(gulp.dest('_site/css'))
         .pipe(gulp.dest('css'))
-        .pipe($.size({title: 'css'}))
-        .pipe(reload({stream:true}));
+        .pipe($.size({title: 'css'}));
 });
 
 // JavaScript
@@ -93,7 +93,7 @@ gulp.task('serve', ['jekyll', 'sass', 'js'], function() {
     // Watch Files For Changes & Reload
     gulp.watch(['_includes/*.html', '_layouts/*.html'], ['jekyll-rebuild']);
     gulp.watch(['*.{html,md}', '_posts/*'], ['jekyll-rebuild']);
-    gulp.watch('_sass/**/*.scss', ['sass']);
+    gulp.watch('css/**/*.scss', ['sass', reload]);
     gulp.watch('js/**/*.js', ['js', reload]);
     gulp.watch('img/**/*', ['imgs', reload]);
 });
