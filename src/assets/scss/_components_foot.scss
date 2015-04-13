@@ -1,0 +1,32 @@
+/* ==========================================================================
+   FOOT
+   ========================================================================== */
+
+.Foot {
+    padding-top: $-space;
+    padding-bottom: $-space;
+}
+
+.Foot__copy,
+.Foot__credits {
+    @include font-size(12px);
+    float: left;
+    width: 50%;
+}
+
+.Foot__copy {
+    padding-right: ($-space--small / 2);
+    text-align: right;
+
+    @include media(sm) {
+        padding-right: $-space--small;
+    }
+}
+
+.Foot__credits {
+    padding-left: ($-space--small / 2);
+
+    @include media(sm) {
+        padding-left: $-space--small;
+    }
+}

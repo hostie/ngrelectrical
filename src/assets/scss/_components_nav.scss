@@ -1,0 +1,79 @@
+/* ==========================================================================
+   NAV
+   ========================================================================== */
+
+.Nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+
+    padding-top: $-space--small;
+    padding-bottom: $-space--small;
+    background-color: $-color-white;
+    border-bottom: 1px solid $-color-gray;
+}
+
+.Nav__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center; /* Flexbox Fallback */
+}
+
+.Nav__item {
+    display: inline-block; /* Flexbox Fallback */
+    padding: 0 $-space--small;
+    text-align: center;
+
+    &:first-child { padding-left: 0; }
+    &:last-child { padding-right: 0; }
+}
+
+.Nav__item--logo {
+    width: 180px;
+    height: 44px;
+    background-image: url(../../images/logo.png);
+
+    @include media(x2) {
+        background-image: url(../../images/logo@2x.png);
+        background-size: 180px 44px;
+    }
+
+    span {
+        display: block;
+        text-indent: -9999px;
+    }
+}
+
+.Nav__link {
+    @include media(md) {
+        @include ui-states {
+            text-decoration: none;
+        }
+    }
+}
+
+/**
+ * Change ordering of navigation items when flexbox is supported and fix the
+ * child padding.
+ */
+
+.flexbox .Nav__item--logo {
+    order: 1;
+    padding-left: $-space--small;
+}
+
+.flexbox .Nav__item--services {
+    order: 0;
+    padding-left: 0;
+}
+
+.flexbox .Nav__item--contact {
+    order: 2;
+}

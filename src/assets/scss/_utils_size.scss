@@ -1,0 +1,157 @@
+/* ==========================================================================
+   SIZE
+   ========================================================================== */
+
+/**
+ * A series of size helper classes that can be used with layouts object for
+ * things like a grid or layout system.
+ */
+
+/* Intrinsic widths
+   ========================================================================== */
+
+/**
+ * Make an element fill the remaining space.
+ * N.B. This will hide overflow.
+ */
+
+.u-sizeFill {
+    display: block !important;
+    width: auto !important;
+    overflow: hidden !important;
+}
+
+/**
+ * Make an element the width of its parent.
+ */
+
+.u-sizeFull {
+    display: block !important;
+    width: 100% !important;
+}
+
+/* Proportional widths
+   ========================================================================== */
+
+/**
+ * Specify the proportional width of an object.
+ * Intentional redundancy build into each set of unit classes.
+ * Supports: 2, 3, 4, 5, 6, 8, 10, 12 part
+ */
+
+.u-size1of2,
+.u-size2of4,
+.u-size3of6,
+.u-size4of8,
+.u-size5of10,
+.u-size6of12 {
+    width: 50% !important;
+}
+
+.u-size1of3,
+.u-size2of6,
+.u-size3of9,
+.u-size4of12 {
+    width: 33.3333333% !important;
+}
+.u-size2of3,
+.u-size4of6,
+.u-size6of9,
+.u-size8of12 {
+    width: 66.6666666% !important;
+}
+
+.u-size1of4,
+.u-size2of8,
+.u-size3of12 {
+    width: 25% !important;
+}
+.u-size3of4,
+.u-size6of8,
+.u-size9of12 {
+    width: 75% !important;
+}
+
+.u-size1of5,
+.u-size2of10 {
+    width: 20% !important;
+}
+.u-size2of5,
+.u-size4of10 {
+    width: 40% !important;
+}
+.u-size3of5,
+.u-size6of10 {
+    width: 60% !important;
+}
+.u-size4of5,
+.u-size8of10 {
+    width: 80% !important;
+}
+
+.u-size1of6,
+.u-size2of12 {
+    width: 16.6666666% !important;
+}
+.u-size5of6,
+.u-size10of12 {
+    width: 83.3333333% !important;
+}
+
+.u-size1of8 {
+    width: 12.5% !important;
+}
+.u-size3of8 {
+    width: 37.5% !important;
+}
+.u-size5of8 {
+    width: 62.5% !important;
+}
+.u-size7of8 {
+    width: 87.5% !important;
+}
+
+.u-size1of9 {
+    width: 11.1111111% !important;
+}
+.u-size2of9 {
+    width: 22.2222222% !important;
+}
+.u-size4of9 {
+    width: 44.4444444% !important;
+}
+.u-size5of9 {
+    width: 55.5555555% !important;
+}
+.u-size7of9 {
+    width: 77.7777777% !important;
+}
+.u-size8of9 {
+    width: 88.8888888% !important;
+}
+
+.u-size1of10 {
+    width: 10% !important;
+}
+.u-size3of10 {
+    width: 30% !important;
+}
+.u-size7of10 {
+    width: 70% !important;
+}
+.u-size9of10 {
+    width: 90% !important;
+}
+
+.u-size1of12 {
+    width: 8.3333333% !important;
+}
+.u-size5of12 {
+    width: 41.6666666% !important;
+}
+.u-size7of12 {
+    width: 58.3333333% !important;
+}
+.u-size11of12 {
+    width: 91.6666666% !important;
+}

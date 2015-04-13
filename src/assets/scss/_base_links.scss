@@ -1,0 +1,13 @@
+/* ==========================================================================
+   LINKS
+   ========================================================================== */
+
+a {
+    color: $-link-color;
+    text-decoration: none;
+    transition: color .2s linear;
+
+    @include ui-states {
+        color: $-link-color-hover;
+    }
+}

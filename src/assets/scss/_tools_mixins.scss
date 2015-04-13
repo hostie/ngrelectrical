@@ -1,0 +1,107 @@
+// =============================================================================
+// MIXINS
+// =============================================================================
+
+// Rem values with pixel fallbacks.
+//
+// $property  - The css property name
+// $px-values - The value or values in pixels
+
+@mixin rem($property, $px-values) {
+
+    // Print the pixel fallback declaration first so we can override it in capable browsers.
+    #{$property}: $px-values;
+
+    // If there is only one (numeric) value, return the property/value line for it.
+    @if type-of($px-values) == "number" {
+        #{$property}: ($px-values / $-font-size) * 1rem;
+    } @else {
+        // Otherwise, we've got a list and we'll need to convert each value in turn.
+        // Create an empty list that we can dump values into,
+        $rem-values: ();
+        @each $value in $px-values {
+            // If the value is zero or not a number, return it
+            @if $value == 0 or type-of( $value ) != "number" {
+                $rem-values: append($rem-values, $value);
+            } @else {
+                $rem-values: append($rem-values, ($value / $-font-size) * 1rem);
+            }
+        }
+
+        // Print the property and its list of converted values.
+        #{$property}: $rem-values;
+    }
+}
+
+// Create fully formed type styles with rems, pixel fallback and line height.
+
+@mixin font-size($px-value, $line: auto) {
+
+    // Print the pixel fallback declaration first so we can override it in capable browsers.
+    font-size: $px-value;
+    font-size: ($px-value / $-font-size) * 1rem;
+
+    @if $line == auto {
+        line-height: ceil($px-value / $-line-height) * ($-line-height / $px-value);
+    } @else {
+        @if (type-of($line) == number or $line == inherit or $line == normal) {
+            line-height: $line;
+        } @else if ($line != none) {
+            @error "'#{$line}' is not a valid value for `line-height`.";
+        }
+    }
+}
+
+// Quickly generate media expressions from defined breakpoints.
+
+@mixin media($breakpoint) {
+
+    @if not map-has-key($-breakpoints, $breakpoint) {
+        @error "Invalid breakpoint #{$breakpoint}.";
+    }
+
+    @media #{map-get($-breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+// Apply ui states in one go.
+
+@mixin ui-states($self: false) {
+
+    @if $self {
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+            @content;
+        }
+    } @else {
+        &:hover,
+        &:focus,
+        &:active {
+            @content;
+        }
+    }
+}
+
+// Center elements.
+
+@mixin center($xy: xy) {
+
+    @if $xy == xy {
+        top: 50%;
+        right: auto;
+        bottom: auto;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    } @else if $xy == x {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    } @else if $xy == y {
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%);
+    }
+}

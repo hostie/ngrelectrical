@@ -1,0 +1,46 @@
+/* ==========================================================================
+   TEXT
+   ========================================================================== */
+
+p {
+    margin-bottom: $-line-height;
+}
+
+/* Emboldened Elements
+   ========================================================================== */
+
+strong, b {
+    font-weight: 600;
+}
+
+/* Blockquote
+   ========================================================================== */
+
+blockquote {
+    padding-left: $-space;
+    font-style: italic;
+    color: $-color-gray;
+    border-left: 1px solid $-border-color;
+}
+
+/* Horizontal Rules
+   ========================================================================== */
+
+hr {
+    margin-bottom: ($-space - 1px);
+    border: none;
+    border-bottom: 1px solid $-border-color;
+
+    @include media(md) {
+        margin-top: ($-space--large - 1px);
+        margin-bottom: ($-space--large - 1px);
+    }
+}
+
+/* Misc
+   ========================================================================== */
+
+.caps {
+    text-transform: uppercase;
+}
+

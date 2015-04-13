@@ -1,0 +1,51 @@
+/* ==========================================================================
+   HEADINGS
+   ========================================================================== */
+
+/**
+ * Headings 1–6, with corresponding abstract classes for double-stranded heading
+ * hierarchy.
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: $-line-height;
+    font-family: $-heading-font-family;
+    font-weight: 300;
+    text-rendering: optimizelegibility;
+    color: $-color-base;
+}
+
+h1,
+.heading--1 {
+    @include font-size(36px);
+}
+
+h2,
+.heading--2 {
+    @include font-size(30px);
+}
+
+h3,
+.heading--3 {
+    @include font-size(24px);
+}
+
+h4,
+.heading--4 {
+    @include font-size(20px);
+}
+
+h5,
+.heading--5 {
+    @include font-size(16px);
+}
+
+h6,
+.heading--6 {
+    @include font-size(14px);
+}

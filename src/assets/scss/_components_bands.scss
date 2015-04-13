@@ -1,0 +1,18 @@
+/* ==========================================================================
+   BANDS
+   ========================================================================== */
+
+.band {
+    padding-top: $-space--large;
+    padding-bottom: $-space--large;
+    background-color: $-color-light-blue;
+
+    @include media(sm) {
+        padding-top: ($-space--large * 2);
+        padding-bottom: ($-space--large * 2);
+    }
+}
+
+.band--dark {
+    background-color: darken($-color-light-blue, 5);
+}
