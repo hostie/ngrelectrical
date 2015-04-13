@@ -11,4 +11,7 @@ exclude: [
     "gulpfile.js"
 ]
 
-keep_files: []
+keep_files: [
+    "assets/css/dist/ie.css",
+    "assets/js/vendor",
+]

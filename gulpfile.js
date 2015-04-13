@@ -86,6 +86,11 @@ gulp.task('js', function () {
       .pipe(plugins.size({title: 'js'}));
 });
 
+gulp.task('copy:vendor', function () {
+    return gulp.src(dirs.source + '/assets/js/vendor/*')
+        .pipe(gulp.dest(dirs.output + '/assets/js/vendor'));
+});
+
 gulp.task('images', function () {
     return gulp.src(dirs.source + '/assets/images/**/*')
         .pipe(plugins.imagemin({
@@ -186,7 +191,7 @@ gulp.task('clean', function (done) {
 gulp.task('serve', function (done) {
     runSequence(
         'jekyll:build',
-        ['lint:js', 'styles', 'js', 'images'],
+        ['lint:js', 'styles', 'js', 'copy:vendor', 'images'],
         'server',
     done);
 });
@@ -195,7 +200,7 @@ gulp.task('serve', function (done) {
 gulp.task('build', function (done) {
     runSequence(
         'clean', 'jekyll:build',
-        ['lint:js', 'styles', 'js', 'images'],
+        ['lint:js', 'styles', 'js', 'copy:vendor', 'images'],
     done);
 });
 
