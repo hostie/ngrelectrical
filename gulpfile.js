@@ -87,7 +87,7 @@ gulp.task('js', function () {
 });
 
 gulp.task('copy:vendor', function () {
-    return gulp.src(dirs.source + '/assets/js/vendor/*')
+    return gulp.src('bower_components/html5shiv/dist/html5shiv.min.js')
         .pipe(gulp.dest(dirs.output + '/assets/js/vendor'));
 });
 
