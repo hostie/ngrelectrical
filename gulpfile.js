@@ -32,6 +32,7 @@
  * |    |- browsersync      # Local server powered by BrowserSync
  * |    |– watch            # Watch for changes on all source files
  * |
+ * |– deploy                # Push the `dist` directory to gh-pages remote branch
  * |– clean                 # Delete the output directory and files
  * |- serve                 # Execute build and local server
  * |– build (default)       # Execute all build tasks
@@ -162,6 +163,11 @@ gulp.task('server', function() {
     ],                                              ['styles', reload]);
     gulp.watch(dirs.source + '/assets/js/*.js',     ['lint:js', 'js', reload]);
     gulp.watch(dirs.source + '/assets/images/**/*', ['images', reload]);
+});
+
+gulp.task('deploy', function() {
+    return gulp.src([dirs.output + '/**/*'])
+        .pipe(plugins.ghPages());
 });
 
 // -----------------------------------------------------------------------------
