@@ -1,115 +1,196 @@
 /**
- * Frontend build.
+ * SCAFFOLDING
+ *
+ * Tasks
+ * |
+ * |– lint:js
+ * |    |- gulpfile         # linting of gulpfile
+ * |    |- all JS           # linting of all JS (excluding 3rd party and vendor)
+ * |
+ * |– js
+ * |    |- concatenate      # Concatenates all JS to `main.js`
+ * |    |– uglifyJS         # Minifying of `main.js` output `main.min.js`
+ * |
+ * |– images
+ * |    |– minify           # Minifying of PNG, JPEG, GIF and SVG images
+ * |
+ * |– styles
+ * |    |– compile          # Generate CSS from SCSS to `main.css`
+ * |    |- prefix           # Prefix generated CSS
+ * |    |– concatenate      # All CSS to `all.css`
+ * |    |- minify           # Minifying of stylesheet
+ * |
+ * |– styles:fallback
+ * |    |– compile          # Generate IE CSS from `main.css`
+ * |    |- minify           # Minifying of `ie.css`
+ * |
+ * |– jekyll
+ * |    |– build            # Building of Jekyll
+ * |    |- rebuild          # Re-building of Jekyll with a page reload
+ * |
+ * |– server
+ * |    |- browsersync      # Local server powered by BrowserSync
+ * |    |– watch            # Watch for changes on all source files
+ * |
+ * |– clean                 # Delete the output directory and files
+ * |- serve                 # Execute build and local server
+ * |– build (default)       # Execute all build tasks
+ * |
  */
 
 var gulp        = require('gulp');
-var $           = require('gulp-load-plugins')();
+var plugins     = require('gulp-load-plugins')();
 var cp          = require('child_process');
-var del         = require('del');
-var runSequence = require('run-sequence');
+
 var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
 
-// Lint JavaScript
-gulp.task('jshint', function () {
-    return gulp.src(['js/**/*.js', '!js/vendor/*.js', '!js/plugins/*.js',  '!js/**/*.min.js'])
-        .pipe(reload({stream: true, once: true}))
-        .pipe($.jshint())
-        .pipe($.jshint.reporter('jshint-stylish'))
-        .pipe($.if(!browserSync.active, $.jshint.reporter('fail')))
+var runSequence = require('run-sequence');
+
+// Directories
+var dirs = {
+    source: 'src',
+    output: 'dist'
+};
+
+gulp.task('lint:js', function () {
+    return gulp.src([
+
+        // Lint all JS
+        dirs.source + '/assets/js/*.js',
+
+        // Exclude the following files
+        '!' + dirs.source + '/assets/js/_modernizr*.js',
+        '!' + dirs.source + '/assets/js/jquery*.js',
+        '!' + dirs.source + '/assets/js/*.min.js'
+
+    ]).pipe(reload({stream: true, once: true}))
+      .pipe(plugins.jshint())
+      .pipe(plugins.jshint.reporter('jshint-stylish'))
+      .pipe(plugins.if(!browserSync.active, plugins.jshint.reporter('fail')));
 });
 
-// JavaScript
-gulp.task('scripts', function () {
-    return gulp.src(['js/**/*.js', '!js/vendor/*.js', '!js/main.min.js'])
-        // Concatenate And Minify Scripts
-        .pipe($.concat('main.js'))
-        .pipe($.rename({suffix: '.min'}))
-        .pipe($.uglify())
-        .pipe(gulp.dest('_site/js'))
-        .pipe(gulp.dest('js'))
-        .pipe($.size({title: 'scripts'}));
+gulp.task('js', function () {
+    return gulp.src([
+
+        'bower_components/jquery/dist/jquery.js',
+        dirs.source + '/assets/js/*.js',
+
+        // Exclude the following files
+        '!' + dirs.source + '/assets/js/*.min.js'
+
+    ]).pipe(plugins.concat('all.js'))
+      .pipe(plugins.uglify())
+      .pipe(gulp.dest(dirs.output + '/assets/js/dist'))
+      .pipe(plugins.size({title: 'js'}));
 });
 
-// Optimize Images
 gulp.task('images', function () {
-    return gulp.src('img/**/*')
-        .pipe($.imagemin({
+    return gulp.src(dirs.source + '/assets/images/**/*')
+        .pipe(plugins.imagemin({
             progressive: true,
             interlaced: true
         }))
-        .pipe(gulp.dest('_site/img'))
-        .pipe($.size({title: 'images'}));
+        .pipe(gulp.dest(dirs.output + '/assets/images'))
+        .pipe(plugins.size({title: 'images'}));
 });
 
-// Compile and prefix Stylesheets.
 gulp.task('styles', function () {
 
-    var AUTOPREFIXER_BROWSERS = [
-        '> 1%',
+    var PREFIX_BROWSERS = [
         'last 2 versions',
         'ie 9',
         'Firefox ESR',
         'Opera 12.1'
     ];
 
-    return gulp.src('css/*.scss')
-        .pipe($.changed('sass', {extension: '.scss'}))
-        .pipe($.sass({
-            precision: 10,
-            onError: console.error.bind(console, 'Sass error:')
-        }))
-        .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
-        .pipe(gulp.dest('_site/css'))
-        .pipe(gulp.dest('css'))
-        // Minify Styles
-        .pipe($.if('*.css', $.csso()))
-        .pipe($.rename({suffix: '.min'}))
-        .pipe(gulp.dest('_site/css'))
-        .pipe(gulp.dest('css'))
-        .pipe($.size({title: 'styles'}));
+    return gulp.src([
+
+            dirs.source + '/assets/scss/*.scss',
+            dirs.source + '/assets/css/*.css'
+
+    ]).pipe(plugins.changed('scss', {extension: '.scss'}))
+      .pipe(plugins.sass({
+          precision: 10,
+          onError: console.error.bind(console, 'Sass error:')
+    }))
+      .pipe(plugins.autoprefixer({browsers: PREFIX_BROWSERS}))
+      .pipe(gulp.dest('.tmp'))
+      .pipe(plugins.changed('css', {extension: '.css'}))
+      .pipe(plugins.concat('all.css'))
+      .pipe(plugins.csso())
+      .pipe(gulp.dest(dirs.output + '/assets/css/dist'))
+      .pipe(plugins.size({title: 'styles'}));
 });
 
-// Jekyll Build.
-gulp.task('jekyll', function (done) {
-
-    var messages = {
-        jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
-    };
-
-    browserSync.notify(messages.jekyllBuild);
-    return cp.spawn('jekyll', ['build'], {stdio: 'inherit'})
-        .on('close', done);
+gulp.task('styles:fallback', function () {
+    return gulp.src('.tmp/styles.css')
+        .pipe(plugins.mqRemove({width: '64em', type: 'screen'}))
+        .pipe(plugins.rename({basename: 'ie'}))
+        .pipe(plugins.csso())
+        .pipe(gulp.dest(dirs.output + '/assets/css/dist'))
+        .pipe(plugins.size({title: 'ie styles'}));
 });
 
-// Jekyll Re-Build
-gulp.task('jekyll-rebuild', ['jekyll'], function () {
-    reload();
+gulp.task('jekyll:build', function (done) {
+    return cp.spawn('jekyll', ['build', '--config=src/_config.yml'], {stdio: 'inherit'}).on('close', done);
 });
 
-// Jekyll Server
-gulp.task('serve', ['jshint', 'jekyll', 'styles', 'scripts'], function() {
+gulp.task('jekyll:rebuild', ['jekyll:build'], function () {
+    browserSync.reload();
+});
+
+gulp.task('server', function() {
     browserSync({
         notify: false,
+        logPrefix: 'SERVER',
         browser: 'google chrome canary',
-        server: ['_site']
+        server: [dirs.output]
     });
 
-    // Watch Files For Changes & Reload
-    gulp.watch(['_includes/*.html', '_layouts/*.html'], ['jekyll-rebuild']);
-    gulp.watch(['*.{html,md}', '_posts/*'], ['jekyll-rebuild']);
-    gulp.watch('css/**/*.scss', ['styles', reload]);
-    gulp.watch('js/**/*.js', ['jshint', reload]);
-    gulp.watch('js/**/*.js', ['scripts', reload]);
-    gulp.watch('img/**/*', ['images', reload]);
+    // Watch Files for changes & do page reload
+    gulp.watch([
+        dirs.source + '/_config.yml',
+        dirs.source + '/_includes/*.html',
+        dirs.source + '/_layouts/*.html',
+        dirs.source + '/_posts/*',
+        dirs.source + '/*.{html,md}'
+    ],                                              ['jekyll:rebuild']);
+    gulp.watch([
+        dirs.source + '/assets/scss/*.scss',
+        dirs.source + '/assets/css/*.css',
+    ],                                              ['styles', reload]);
+    gulp.watch(dirs.source + '/assets/js/*.js',     ['lint:js', 'js', reload]);
+    gulp.watch(dirs.source + '/assets/images/**/*', ['images', reload]);
 });
+
+// -----------------------------------------------------------------------------
+// | Main commands                                                             |
+// -----------------------------------------------------------------------------
 
 // Clean Output Directory
 gulp.task('clean', function (done) {
-    require('del')(['_site', '.sass-cache'], done);
+    require('del')([
+        dirs.output,
+        '.tmp'
+    ], done);
+});
+
+// Launch local server
+gulp.task('serve', function (done) {
+    runSequence(
+        'jekyll:build',
+        ['lint:js', 'styles', 'js', 'images'],
+        'server',
+    done);
 });
 
 // Build Files
-gulp.task('default', function (done) {
-    runSequence('clean', ['jshint', 'jekyll', 'styles', 'scripts', 'images'], done);
+gulp.task('build', function (done) {
+    runSequence(
+        'clean', 'jekyll:build',
+        ['lint:js', 'styles', 'js', 'images'],
+    done);
 });
+
+gulp.task('default', ['build']);
