@@ -12,6 +12,5 @@ exclude: [
 ]
 
 keep_files: [
-    "assets/css/dist/ie.css",
-    "assets/js/vendor",
+    "assets"
 ]
