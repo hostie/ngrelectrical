@@ -3,8 +3,8 @@
    ========================================================================== */
 
 .band {
-    padding-top: $-space--large;
-    padding-bottom: $-space--large;
+    padding-top: $-space;
+    padding-bottom: $-space;
     background-color: $-color-light-blue;
 
     @include media(sm) {

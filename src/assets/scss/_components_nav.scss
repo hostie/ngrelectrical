@@ -3,16 +3,18 @@
    ========================================================================== */
 
 .Nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-
     padding-top: $-space--small;
     padding-bottom: $-space--small;
     background-color: $-color-white;
     border-bottom: 1px solid $-color-gray;
+
+    @include media(sm) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+    }
 }
 
 .Nav__list {
@@ -36,13 +38,24 @@
 }
 
 .Nav__item--logo {
-    width: 180px;
-    height: 44px;
-    background-image: url(../../images/logo.png);
+    width: 140px;
+    height: 36px;
+    background-image: url(../../images/logo--small.png);
 
     @include media(x2) {
-        background-image: url(../../images/logo@2x.png);
-        background-size: 180px 44px;
+        background-image: url(../../images/logo--small@2x.png);
+        background-size: 140px 36px;
+    }
+
+    @include media(sm) {
+        width: 180px;
+        height: 44px;
+        background-image: url(../../images/logo.png);
+
+        @include media(x2) {
+            background-image: url(../../images/logo@2x.png);
+            background-size: 180px 44px;
+        }
     }
 }
 
