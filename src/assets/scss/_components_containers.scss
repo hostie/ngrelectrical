@@ -9,4 +9,8 @@
     @include media(md) {
         max-width: 80%;
     }
+
+    @include media(lg) {
+        max-width: 1280px;
+    }
 }
