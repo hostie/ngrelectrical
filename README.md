@@ -1,4 +1,4 @@
-# NGR
+# NGR Electrical
 
 This project contains the source code powering the [ngrelectrical.co.uk](http://ngrelectrical.co.uk) website.
 
